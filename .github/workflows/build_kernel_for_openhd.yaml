@@ -58,6 +58,7 @@ jobs:
         chmod a+x debian/rules
         chmod a+x debian/scripts/*
         chmod a+x debian/scripts/misc/*
+        make ARCH=x86 mrproper
         LANG=C fakeroot debian/rules clean
         LANG=C fakeroot debian/rules binary-headers binary-generic binary-perarch
   
