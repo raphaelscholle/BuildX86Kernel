@@ -32,10 +32,10 @@ jobs:
         cd lunar/workdir
         git clone https://github.com/OpenHD/rtl8812au
         cd rtl8812au
-        echo "test"
-        ls ../../
-        echo"test2"
         mkdir -p ../../drivers/net/wireless/rtl8812au
+        echo "test ../../drivers/net/wireless/"
+        ls -a
+        echo "end"
         mv * ../../drivers/net/wireless/rtl8812au/
         cd ../../../
         rm -Rf workdir
@@ -45,6 +45,7 @@ jobs:
         sed -i '1s/^/CONFIG_RTL8812AU=m\n/' ../../../arch/x86/configs/x86_64_defconfig
         echo "$(cat Makefile)"
         cat ../../../arch/x86/configs/x86_64_defconfig
+        echo "testing 2222____________________________"
         sed -i '52s/.*/source "drivers\/net\/wireless\/rtl8812au\/Kconfig"/' Kconfig
         echo "$(cat Kconfig)"
         cd ../../../
