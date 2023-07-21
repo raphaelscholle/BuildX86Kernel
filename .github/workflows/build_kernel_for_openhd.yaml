@@ -58,7 +58,7 @@ jobs:
         chmod a+x debian/scripts/*
         chmod a+x debian/scripts/misc/*
         LANG=C fakeroot debian/rules clean
-        cp -f ../config .config
+        make defconfig
         LANG=C fakeroot debian/rules binary 
 
     - name: Upload to Github
