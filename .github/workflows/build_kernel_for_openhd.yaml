@@ -26,30 +26,30 @@ jobs:
       run: |
          git clone https://git.launchpad.net/~ubuntu-kernel/ubuntu/+source/linux/+git/lunar/ --depth=1
          cd lunar
-    - name: clone drivers into kernel
-      run: |
-        mkdir -p lunar/workdir
-        cd lunar/workdir
-        git clone https://github.com/OpenHD/rtl8812au
-        cd rtl8812au
-        cd ../../drivers/net/wireless/
-        mkdir -p rtl8812au
-        cd ../../../workdir/rtl8812au
-        mv * ../../drivers/net/wireless/rtl8812au/
-        ls ../../drivers/net/wireless/rtl8812au/
-        cd ../../../
-        rm -Rf workdir
-        cd lunar/drivers/net/wireless/
-        echo 'obj-$(CONFIG_RTL8812AU) += rtl8812au/' >> Makefile
-        ls ../..
-        echo "checkpoint"
-        sed -i '1s/^/CONFIG_RTL8812AU=m\n/' ../../../arch/x86/configs/x86_64_defconfig
-        echo "$(cat Makefile)"
-        cat ../../../arch/x86/configs/x86_64_defconfig
-        echo "testing 2222____________________________"
-        sed -i '40s/.*/source "drivers\/net\/wireless\/rtl8812au\/Kconfig"/' Kconfig
-        echo "$(cat Kconfig)"
-        cd ../../../
+    # - name: clone drivers into kernel
+    #   run: |
+    #     mkdir -p lunar/workdir
+    #     cd lunar/workdir
+    #     git clone https://github.com/OpenHD/rtl8812au
+    #     cd rtl8812au
+    #     cd ../../drivers/net/wireless/
+    #     mkdir -p rtl8812au
+    #     cd ../../../workdir/rtl8812au
+    #     mv * ../../drivers/net/wireless/rtl8812au/
+    #     ls ../../drivers/net/wireless/rtl8812au/
+    #     cd ../../../
+    #     rm -Rf workdir
+    #     cd lunar/drivers/net/wireless/
+    #     echo 'obj-$(CONFIG_RTL8812AU) += rtl8812au/' >> Makefile
+    #     ls ../..
+    #     echo "checkpoint"
+    #     sed -i '1s/^/CONFIG_RTL8812AU=m\n/' ../../../arch/x86/configs/x86_64_defconfig
+    #     echo "$(cat Makefile)"
+    #     cat ../../../arch/x86/configs/x86_64_defconfig
+    #     echo "testing 2222____________________________"
+    #     sed -i '40s/.*/source "drivers\/net\/wireless\/rtl8812au\/Kconfig"/' Kconfig
+    #     echo "$(cat Kconfig)"
+    #     cd ../../../
 
     - name: build kernel
       run: |
