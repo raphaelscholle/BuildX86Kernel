@@ -28,12 +28,8 @@ jobs:
          cd lunar
     - name: clone drivers into kernel
       run: |
-        mkdir workdir
-        cd workdir
-        ls
-        echo "test"
-        ls ../
-        exit 1
+        mkdir -p lunar/workdir
+        cd lunar/workdir
         git clone https://github.com/OpenHD/rtl8812au
         cd rtl8812au
         mkdir -p ../../drivers/net/wireless/rtl8812au
