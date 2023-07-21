@@ -47,7 +47,7 @@ jobs:
         echo "$(cat Makefile)"
         cat ../../../arch/x86/configs/x86_64_defconfig
         echo "testing 2222____________________________"
-        sed -i '52s/.*/source "drivers\/net\/wireless\/rtl8812au\/Kconfig"/' Kconfig
+        sed -i '40s/.*/source "drivers\/net\/wireless\/rtl8812au\/Kconfig"/' Kconfig
         echo "$(cat Kconfig)"
         cd ../../../
 
