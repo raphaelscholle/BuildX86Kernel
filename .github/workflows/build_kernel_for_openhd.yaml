@@ -38,6 +38,7 @@ jobs:
         rm -Rf workdir
         cd drivers/net/wireless/
         echo 'obj-$(CONFIG_RTL8812AU) += rtl8812au/' >> Makefile
+        ls ../../../
         sed -i '1s/^/CONFIG_RTL8812AU=m\n/' ../../../arch/x86/configs/x86_64_defconfig
         echo "$(cat Makefile)"
         cat ../../../arch/x86/configs/x86_64_defconfig
