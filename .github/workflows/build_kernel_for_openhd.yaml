@@ -33,16 +33,10 @@ jobs:
         git clone https://github.com/OpenHD/rtl8812au
         cd rtl8812au
         cd ../../drivers/net/wireless/
-        ls
-        exit 1
         mkdir -p rtl8812au
-        ls
         cd ../../../workdir/rtl8812au
-        echo "test ../../drivers/net/wireless/"
-        ls ../../
-        ls ../../drivers/net/wireless/
-        echo "end"
         mv * ../../drivers/net/wireless/rtl8812au/
+        exit 1
         cd ../../../
         rm -Rf workdir
         cd drivers/net/wireless/
