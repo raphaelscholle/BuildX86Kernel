@@ -25,6 +25,7 @@ jobs:
       run: |
          git clone https://git.launchpad.net/~canonical-kernel/ubuntu/+source/linux-kvm/+git/lunar --depth=1
          cd lunar
+         mv debian.master debian
     - name: build kernel
       run: |
         dpkg-buildpackage -a "$(cat debian/arch)" -d -b -nc -uc
