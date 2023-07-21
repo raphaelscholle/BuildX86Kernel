@@ -25,7 +25,6 @@ jobs:
     - name: clone latest kernel
       run: |
          git clone https://git.launchpad.net/~ubuntu-kernel/ubuntu/+source/linux/+git/lunar/ --depth=1
-         cp config lunar/.config
          cd lunar
     # - name: clone drivers into kernel
     #   run: |
@@ -58,8 +57,10 @@ jobs:
         chmod a+x debian/rules
         chmod a+x debian/scripts/*
         chmod a+x debian/scripts/misc/*
-        LANG=C fakeroot debian/rules binary-headers binary-generic binary-perarch
-  
+        LANG=C fakeroot debian/rules clean
+        cp -Rf config ../config .config
+        LANG=C fakeroot debian/rules binary 
+
     - name: Upload to Github
       uses: 'actions/upload-artifact@v2'
       with:
