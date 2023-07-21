@@ -39,9 +39,7 @@ jobs:
         ls ../../drivers/net/wireless/rtl8812au/
         cd ../../../
         rm -Rf workdir
-        ls
-        exit 1
-        cd drivers/net/wireless/
+        cd lunar/drivers/net/wireless/
         echo 'obj-$(CONFIG_RTL8812AU) += rtl8812au/' >> Makefile
         ls ../..
         echo "checkpoint"
