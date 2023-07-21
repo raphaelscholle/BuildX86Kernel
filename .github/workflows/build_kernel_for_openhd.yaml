@@ -58,8 +58,7 @@ jobs:
         chmod a+x debian/scripts/*
         chmod a+x debian/scripts/misc/*
         LANG=C fakeroot debian/rules clean
-        LANG=C fakeroot debian/rules binary
-
+        LANG=C fakeroot debian/rules binary-headers binary-generic binary-perarch
   
     - name: Upload to Github
       uses: 'actions/upload-artifact@v2'
