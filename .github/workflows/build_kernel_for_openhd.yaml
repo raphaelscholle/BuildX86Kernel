@@ -26,13 +26,15 @@ jobs:
       run: |
          git clone https://git.launchpad.net/~canonical-kernel/ubuntu/+source/linux-kvm/+git/lunar --depth=1
          cd lunar
-         mv debian.master debian
     - name: build kernel
       run: |
-        dpkg-buildpackage -a "$(cat debian/arch)" -d -b -nc -uc
-        ls -a ../
-        cd .. 
-        cp *.deb linux-rockchip/
+        ls -a
+        chmod a+x debian/rules
+        chmod a+x debian/scripts/*
+        chmod a+x debian/scripts/misc/*
+        LANG=C fakeroot debian/rules clean
+        LANG=C fakeroot debian/rules binary
+
   
     - name: Upload to Github
       uses: 'actions/upload-artifact@v2'
