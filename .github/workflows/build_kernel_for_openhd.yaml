@@ -25,6 +25,7 @@ jobs:
     - name: clone latest kernel
       run: |
          git clone https://git.launchpad.net/~ubuntu-kernel/ubuntu/+source/linux/+git/lunar/ --depth=1
+         cp config lunar/.config
          cd lunar
     # - name: clone drivers into kernel
     #   run: |
