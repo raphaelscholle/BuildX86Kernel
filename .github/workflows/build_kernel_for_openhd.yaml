@@ -32,9 +32,13 @@ jobs:
         cd lunar/workdir
         git clone https://github.com/OpenHD/rtl8812au
         cd rtl8812au
-        mkdir -p ../../drivers/net/wireless/rtl8812au
+        cd ../../drivers/net/wireless/
+        mkdir -p rtl8812au
+        ls
+        cd ../../../workdir/rtl8812au
         echo "test ../../drivers/net/wireless/"
-        tree ../../
+        ls ../../
+        ls ../../drivers/net/wireless/
         echo "end"
         mv * ../../drivers/net/wireless/rtl8812au/
         cd ../../../
